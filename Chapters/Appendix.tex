@@ -1,0 +1,134 @@
+%********************************************************************
+% Appendix
+%*******************************************************
+% If problems with the headers: get headings in appendix etc. right
+\markboth{\spacedlowsmallcaps{Appendix}}{\spacedlowsmallcaps{Appendix}}
+%\chapter{Appendix Test}
+%************************************************
+\chapter{Appendix example}
+
+\begin{flushright}{\slshape    
+    We have seen that computer programming is an art, \\ 
+    because it applies accumulated knowledge to the world, \\ 
+    because it requires skill and ingenuity, and especially \\
+    because it produces objects of beauty.} \\ \medskip
+    --- \citeauthor{knuth:1974}, \citetitle{knuth:1974},
+\citeyear{knuth:1974} 
+\end{flushright}
+
+\section{How to write good software: testing and evaluating}
+To test the software we wrote, we rely on the Google \acs{C++}
+Testing framework. The site says that it is
+the \blockquote{Google's framework for writing \ac{C++} tests on a
+variety of platforms (Linux, Mac OS X, Windows, Cygwin, Windows
+CE, and Symbian). Based on the xUnit architecture. Supports
+automatic test discovery, a rich set of assertions, user-defined
+assertions, death tests, fatal and non-fatal failures, value- and
+type-parameterized tests, various options for running the tests,
+and \ac{XML} test report generation.} It is available under the
+\enquote{New BSD
+License}\footnote{\url{http://opensource.org/licenses/BSD-3-Clause}}
+at \url{http://code.google.com/p/googletest/}. Within the testing
+framework, we performed eighteen tests on the core functionalities
+of the software. $658$ assertions have been evaluated to ensure
+code correctness both while writing is and when deployment has
+been done.
+
+The model relies on a certain amount of data which must be
+produced and held during the execution of the software. An
+optimization run usually lasts for tens of hours and therefore the
+memory management becomes an important issue. Assessment of its
+correctness and coherence has been performed using Valgrind.
+\blockquote{Valgrind is an instrumentation framework for building
+dynamic analysis tools. There are Valgrind tools that can
+automatically detect many memory management and threading bugs,
+and profile your programs in detail. It runs on the following
+platforms: X86/Linux, [\ldots]. Valgrind is Open Source / Free
+Software, and is freely available under the GNU General Public
+License, version 2.}
+
+Performance is also a critical issue: during the optimization, the
+operations performed by the model are executed millions of times.
+Therefore we analyzed performance with a profiler,
+\emph{gprof}. Profiling allows you to learn where the program
+spent its time and which functions called which other functions
+while it was executing. This information can show which pieces of
+your program are slower than expected and might be candidates for
+rewriting to make the program execute faster.
+
+The profiling analysis showed that the model spend most of the
+execution time in extraction of flow direction. Some time is spent
+also during the depression filling: the amount spent is influnced
+greatly by the smoothness of the landscape and by the dimension of
+the depressions. After some improvements, the average perfomance
+in first experiment has been about $40$ ms per function
+evaluation \ie per depression filling, flow routing and objectives
+evaluation.
+
+\section{Constraint feasibility}
+\label{appChap:constraint}
+The model features a constraint called
+\enquote{tectonic condition} based on the hypothesis that the
+mass gained by the uplift is the same as the total loss of sediment
+mass from the whole landscape. This requirement also means that
+the sum of elevations is still the same during the optimization
+process.
+
+\lstinputlisting[firstline=1,
+lastline=47, float=tb, language=C++, tabsize=4, numbers=left,
+numberstyle=\tiny, stepnumber=2, numbersep=5pt, caption={Code
+snippet with the recursive function to evaluate the pdf of the sum
+$Z_N$ of $N$ random variables equal to $X$.}, captionpos=t,
+label=lst:probCounter]{CodeFiles/probabilityCounter.cpp}
+
+\subsection{Technical side}
+We were asked to use the \LaTeX system, and we would have chosen
+it anyway.
+As the website \url{http://latex-project.org/} states, \blockquote{
+\LaTeX is a document preparation system for high-quality
+typesetting. It is most often used for medium-to-large technical
+or scientific documents but it can be used for almost any form of
+publishing. \LaTeX is not a word processor! Instead, \LaTeX
+encourages authors not to worry too much about the appearance of
+their documents but to concentrate on getting the right content.
+[It] is based on the idea that it is better to leave document
+design to document designers, and to let authors get on with
+writing documents. \LaTeX is based on Donald E. Knuth's \TeX
+typesetting language or certain extensions. \LaTeX was first
+developed in 1985 by Leslie Lamport, and is now being maintained
+and developed by the \LaTeX3 Project.}
+
+We can confirm every single word. Indeed, we let the design of the
+appearance to \enquote{document designers}. Particularly we chose
+the style \enquote{Classic Thesis} available at
+\url{http://code.google.com/p/classicthesis/}. It's \enquote{an
+homage to the elements of typographic style} and is inspired by
+the work of \citeauthor{bringhurst:2002} \citetitle{bringhurst:2002}
+\cite{bringhurst:2002}.
+
+A little workflow research on the Internet resources was done to
+find a simple yet powerful bibliography management system. We
+ended up choosing \emph{zotero} because of its easy connection
+with most of articles database and with bibtex. As the website
+states at \url{http://www.zotero.org/}, \blockquote{Zotero
+[zoh-TAIR-oh] is a free, easy-to-use tool to help you collect,
+organize, cite, and share your research sources. It lives right
+where you do your work --- in the web browser itself}. It has also
+the capability to retrieve the article itself and to link the file
+with its database, which effectively become our library.
+
+The word \enquote{BibTeX} stands for a tool and a file format
+which are used to describe and process lists of references, mostly
+in conjunction with \LaTeX documents. It is supported by
+\emph{zotero} as well as Google Scholar, Web Of Science and many
+other research related resources.
+
+Last but not least, we rely on the plugin structure of
+\emph{Eclipse} to use it as a \LaTeX editor, thanks to the \TeX
+lipse plugin available at \url{http://texlipse.sourceforge.net/}.
+With the \emph{pdf4Eclipse} plugin we were also able to see the
+changes in the document appearance each time we saved the \TeX
+files, thanks to the automatic compilation that can be triggered
+in \emph{Eclipse}. We could also rely on the \emph{Google Code}
+repository to take care of merging the work of both of us and
+prevent any losses.
