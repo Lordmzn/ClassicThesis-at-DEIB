@@ -37,26 +37,28 @@
 %    * Use tables as in the examples
 %    * See classicthesis-preamble.sty for useful commands
 % ****************************************************************
+
 \documentclass[ twoside, 
 			openright,
 			% letterpaper a4paper
 			titlepage, 
 			numbers=noenddot,
 			headinclude, %1headlines
-                		footinclude=true, 
+            		footinclude=true, 
 			cleardoublepage=empty,
 			abstractoff, % <--- obsolete, remove (todo)
 			BCOR=5mm,
 			paper=a4, 
 			fontsize=11pt, %11pt,
-			ngerman, american, %languages
 			]{scrreprt}
 
 %*****************************************************************
 % Note: Make all your adjustments in here
 %*****************************************************************
+
 \usepackage[backref, backend=biber]{biblatex}
- \addbibresource{Bibliography.bib}	
+\bibliography{Bibliography}	
+
 \input{classicthesis-config}
 
 %*****************************************************************
@@ -65,49 +67,51 @@
 \hyphenation{put-here-the-words-latex-cannot-hyphenate}
 
 \begin{document}
+
+	% initial, local settings
 	\numberwithin{equation}{chapter}
 	\frenchspacing
 	\raggedbottom
-	\selectlanguage{american} % american italian
-	%\renewcommand*{\bibname}{new name}
-	%\setbibpreamble{}
+	\selectlanguage{american} % american/italian
 	\pagenumbering{roman}
 	\pagestyle{plain}
+	
 	%*************************************************************
 	% Frontmatter
 	%*************************************************************
-	% Uncomment the following line to add the ''copertina'' to the pdf (also adds a blank page)
+
+	% Uncomment the following line to add the ''copertina'' to the pdf
 	% \include{FrontBackmatter/Copertina}
 	\include{FrontBackmatter/Frontespizio}
 	\include{FrontBackmatter/FrontespizioIT}
 	\include{FrontBackmatter/RetroFrontespizio} % a.k.a. the colophon
 	\cleardoublepage\include{FrontBackmatter/Dedication}
-	% \cleardoublepage\include{FrontBackmatter/Publication} % i don't know if it's useful or not
+	% \cleardoublepage\include{FrontBackmatter/Publication}
 	\cleardoublepage\include{FrontBackmatter/Acknowledgments}
-	
 	\cleardoublepage\include{FrontBackmatter/AutoParts/Contents}
 	\cleardoublepage\include{FrontBackmatter/Abstract}
 	\cleardoublepage\include{FrontBackmatter/Estratto}
 	\cleardoublepage\include{FrontBackmatter/Preface}
+
 	\pagestyle{scrheadings}	
 		
 	%*************************************************************
 	% Mainmatter
+
 	%*************************************************************
 	\pagenumbering{arabic}
 	%\setcounter{page}{90}
-	% use \cleardoublepage here incase of problems with pdfbookmark
-	\cleardoublepage
-	\ctparttext{You can put some informational part preamble text here.}
-	\part{Theory}
+	% use \cleardoublepage here in case of problems with pdfbookmark
+
+	\cleardoublepage\ctparttext{You can put some informational part preamble text here.}
+	\part{Writing a Master thesis}
 
 	\include{Chapters/Introduction}
 	% \include{Chapter/MyOtherChapter}
 	
-	\cleardoublepage
-	\ctparttext{Dat show!}
-	\part{Practice}
-
+	\cleardoublepage\ctparttext{Another informational part preamble text here.}
+	\part{Using this Latex template}
+	
 	\include{Chapters/Conclusion} 
 	
 	% ************************************************************
@@ -118,10 +122,5 @@
 	\cleardoublepage\part{Appendix}
 	\include{Chapters/Appendix}
 
-	%*************************************************************
-	% Other Stuff in the Back
-	%*************************************************************
-	% glossaries
-	
 \end{document}
 % ****************************************************************

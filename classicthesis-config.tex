@@ -64,11 +64,12 @@
 \newcommand{\myAcademicYear}{Academic Year 2011-2012\xspace}
 
 % ********************************************************************
-% Setup, finetuning, and useful commands
+% Setup, fine tuning, and useful commands
 % ********************************************************************
 \newcounter{dummy} % necessary for correct hyperlinks (to index, bib, etc.)
 \newlength{\abcd} % for ab..z string length calculation
 \providecommand{\mLyX}{L\kern-.1667em\lower.25em\hbox{Y}\kern-.125emX\@}
+% from here till the end of the section, you can modify whatever you want
 \newcommand{\ie}{i.\,e.\ }
 \newcommand{\Ie}{I.\,e.\ }
 \newcommand{\eg}{e.\,g.\ }
@@ -87,17 +88,18 @@
 \newcommand{\myChap}[1]{chapter \ref{#1}}
 \newcommand{\MyChap}[1]{Chapter \ref{#1}}
 \newcommand{\myAppendix}[1]{appendix \ref{#1}}
-\newcommand{\highlight}[1]{\colorbox{lightgray}{$\displaystyle #1$}}
+\newcommand{\MyAppendix}[1]{Appendix \ref{#1}}
+\newcommand{\myEmph}[1]{\textsc{#1}}
 
-% ****************************************************************************************************
+% **********************************************************************
 
 
-% ****************************************************************************************************
+% **********************************************************************
 % 3. Loading some handy packages
-% ****************************************************************************************************
-\PassOptionsToPackage{T1}{fontenc} 		% T2A for cyrillics
+% **********************************************************************
+\PassOptionsToPackage{T1}{fontenc} % T2A for cyrillics
 	\usepackage{fontenc} 
-\PassOptionsToPackage{utf8}{inputenc}	% latin9 (ISO-8859-9) = latin1+"Euro sign"
+\PassOptionsToPackage{utf8}{inputenc} % latin9 (ISO-8859-9) = latin1+"Euro sign"
 	\usepackage{inputenc}				
 
 \PassOptionsToPackage{autostyle,italian=guillemets,threshold=2}{csquotes}
@@ -106,7 +108,7 @@
 \PassOptionsToPackage{american,italian}{babel}
 	 \usepackage{babel}
 
-\PassOptionsToPackage{fleqn}{amsmath}		% math environments and more by the AMS 
+\PassOptionsToPackage{fleqn}{amsmath} % math environments and more by the AMS 
  	\usepackage{amsmath}
  
 \usepackage{amsthm}
@@ -123,17 +125,12 @@
 \PassOptionsToPackage{printonlyused,smaller}{acronym}
 	\usepackage{acronym} % nice macros for handling all acronyms in the thesis
 \renewcommand{\bflabel}[1]{{#1}\hfill} % fix the list of acronyms
-
-\usepackage{quoting} % TODO REMOVE THIS
-\quotingsetup{font=small}
-
-\newcommand{\myEmph}[1]{\textsc{#1}}
-% ****************************************************************************************************
+% **********************************************************************
 
 
-% ****************************************************************************************************
+% **********************************************************************
 % 4. Setup floats: tables, (sub)figures, and captions
-% ****************************************************************************************************
+% **********************************************************************
 \usepackage{tabularx} % better tables
 	\setlength{\extrarowheight}{3pt} % increase table row height
 \newcommand{\tableheadline}[2]{\multicolumn{1}{#1}{\normalsize\spacedlowsmallcaps{#2}}}
@@ -147,17 +144,17 @@
 
 \usepackage{subfig}
 \usepackage{siunitx}
-% ****************************************************************************************************
+% *********************************************************************
 
 
-% ****************************************************************************************************
+% *********************************************************************
 % 5. Setup code listings
-% ****************************************************************************************************
+% *********************************************************************
 \usepackage{listings}
 \lstloadlanguages{bash, C++, Java, Matlab}
-%\lstset{emph={trueIndex,root},emphstyle=\color{BlueViolet}}%\underbar}
-% % for special keywords
-\lstset{language=[LaTeX]Tex,%C++,
+
+% for special keywords
+\lstset{language=[LaTeX]Tex,
     keywordstyle=\color{RoyalBlue},%\bfseries,
     basicstyle=\small\ttfamily,
     %identifierstyle=\color{NavyBlue},
@@ -174,12 +171,12 @@
     belowcaptionskip=.75\baselineskip
     %frame=L
 } 
-% ****************************************************************************************************    		   
+% *********************************************************************
 
 
-% ****************************************************************************************************
+% *********************************************************************
 % 6. PDFLaTeX, hyperreferences and citation backreferences
-% ****************************************************************************************************
+% *********************************************************************
 % ********************************************************************
 % Using PDFLaTeX
 % ********************************************************************
@@ -214,6 +211,14 @@
 		      \fi}%
 }{\relax}    
 
+
+% ****************************************************************
+% PDF/A compliance
+% ****************************************************************
+% TODO not working: requires downloading color specification file in a specific
+% tex folder and other hacks I don't want to spend time with
+% \usepackage[a-1b]{pdfx}
+
 % ********************************************************************
 % Hyperreferences
 % ********************************************************************
@@ -227,14 +232,16 @@
     hypertexnames=true, pdfhighlight=/O,%nesting=true,%frenchlinks,%
     urlcolor=webbrown, linkcolor=RoyalBlue, citecolor=webgreen, %pagecolor=RoyalBlue,%
     %urlcolor=Black, linkcolor=Black, citecolor=Black, %pagecolor=Black,%
-    pdftitle={\myTitle},%
-    pdfauthor={\textcopyright\ \myFirstAuthorName and \mySecondAuthorName, \myUni,
-    \myFaculty},%
-    pdfsubject={},%
-    pdfkeywords={},%
-    pdfcreator={pdfLaTeX},%
-    pdfproducer={LaTeX with hyperref and classicthesis}%
-}   
+} 
+
+    %pdftitle={\myTitle},%
+    %pdfauthor={\textcopyright\ \myFirstAuthorName and \mySecondAuthorName, \myUni, \myFaculty},%
+    %pdfsubject={},%
+    %pdfkeywords={},%
+    %pdfcreator={pdfLaTeX},%
+    %pdfproducer={LaTeX with hyperref and classicthesis}%
+
+%}   
 
 % ********************************************************************
 % Setup autoreferences
@@ -273,17 +280,10 @@
     }{\relax}
 \makeatother
 
-
-% ****************************************************************************************************
+% ****************************************************************
 % 7. Last calls before the bar closes
-% ****************************************************************************************************
-% ********************************************************************
-% Development Stuff
-% ********************************************************************
-\listfiles
+% ****************************************************************
 
-% ********************************************************************
-% Last, but not least...
-% ********************************************************************
 \usepackage{classicthesis} 
-% ****************************************************************************************************
+
+% ****************************************************************
