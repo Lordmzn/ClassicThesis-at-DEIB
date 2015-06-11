@@ -10,3 +10,5 @@
 *.out
 *.gz
 *.toc
+*.fdb_latexmk
+ClassicThesis_DEIB.fls

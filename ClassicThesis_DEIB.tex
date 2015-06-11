@@ -103,16 +103,11 @@
 	%\setcounter{page}{90}
 	% use \cleardoublepage here in case of problems with pdfbookmark
 
-	\cleardoublepage\ctparttext{You can put some informational part preamble text here.}
-	\part{Writing a Master thesis}
+	% \cleardoublepage\ctparttext{You can put some informational part preamble text here.} % uncomment these two lines to create "part" of chapters
+	% \part{Writing a Master thesis}
 
-	\include{Chapters/Introduction}
-	% \include{Chapter/MyOtherChapter}
-	
-	\cleardoublepage\ctparttext{Another informational part preamble text here.}
-	\part{Using this Latex template}
-	
-	\include{Chapters/Conclusion} 
+	\include{Chapters/Introduction_Writing}
+	\include{Chapters/Technicalities} 
 	
 	% ************************************************************
 	% Backmatter
@@ -120,7 +115,7 @@
 	\cleardoublepage\include{FrontBackmatter/AutoParts/Bibliography}
 	\appendix
 	\cleardoublepage\part{Appendix}
-	\include{Chapters/Appendix}
+	\include{Chapters/Code_listings}
 
 \end{document}
 % ****************************************************************

@@ -9,8 +9,8 @@ It is widely used for the communication and publication of scientific documents 
 
 \LaTeX\ users are weird people who care about the ligature between \enquote{f} and \enquote{i} and gets pissed off every time they look at a MS Word document.
 Nevertheless, they can explain themselves very well as shown in some beautiful guides for the \LaTeX\ world.
-My preferred one for beginners is \enquote{The Not So Short Introduction to \LaTeXe}, which can be found \href{http://www.ctan.org/pkg/lshort}{here}.\footnote{\url{http://www.ctan.org/pkg/lshort}}
-For italians I also strongly suggest \enquote{L'arte di scrivere con \LaTeX}, that can be found \href{http://www.lorenzopantieri.net/LaTeX_files/ArteLaTeX.pdf}{here}.\footnote{\url{http://www.lorenzopantieri.net/LaTeX_files/ArteLaTeX.pdf}}
+Our preferred one for beginners is \enquote{The Not So Short Introduction to \LaTeXe}, which can be found \href{http://www.ctan.org/pkg/lshort}{here}.\footnote{\url{http://www.ctan.org/pkg/lshort}}
+For italians we also strongly suggest \enquote{L'arte di scrivere con \LaTeX}, that can be found \href{http://www.lorenzopantieri.net/LaTeX_files/ArteLaTeX.pdf}{here}.\footnote{\url{http://www.lorenzopantieri.net/LaTeX_files/ArteLaTeX.pdf}}
 It contains everything needed, however I suggest the reading of chapter 3 for a short introduction. \enquote{ClassicThesis} is another guide of the same author that can be useful, download it \href{http://www.lorenzopantieri.net/LaTeX_files/ClassicThesis.pdf}{here}.\footnote{\url{http://www.lorenzopantieri.net/LaTeX_files/ClassicThesis.pdf}}
 
 \section{Install \LaTeX}
@@ -27,7 +27,7 @@ Alternatevely you can read an italian manual: \href{http://profs.sci.univr.it/~g
 After opening TeXworks, I strongly suggest to set these two additional things:
 \begin{itemize}
 	\item open Preferences, then go the Composition tab: in the second box there, the \enquote{Process instruments}, push the plus button.
-In the window just opened, write \verb!Biber! in the \enquote{Name} field, \verb!biber! in the \enquote{Program} field (lowercase!) and then press the plus button to add the argument \verb!$basename!;
+	In the window just opened, write \verb!Biber! in the \enquote{Name} field, \verb!biber! in the \enquote{Program} field (lowercase!) and then press the plus button to add the argument \verb!$basename!;
 	\item again in the same window, set \enquote{Hide console output} to \enquote{never}.
 \end{itemize}
 
@@ -98,7 +98,7 @@ To modify abstract, preface, acknowledgements snd acronyms, you need to go into 
 	\item[RetroFrontespizio.tex] contains the colophon. In most cases is fine as it already is.
 \end{description}
 
-\subsection{Environments}
+\subsection{Special environments}\label{subsec:special_env}
 In addition to common \LaTeX\ environments, this thesis is set to use:
 \begin{itemize}
 
@@ -106,15 +106,17 @@ In addition to common \LaTeX\ environments, this thesis is set to use:
 
 	\item \verb!\begin{aenumerate}! to produce an \verb!\enumerate! with letters instead of numbers, as in the file list above;
 
-	\item \verb!\blockcquote[][]{}{}! to 	\blockcquote[see][p. 111]{bringhurst:2002}{produce a citation
-	with reference to author and page}. If the citation is longer than two rows is indented.
-This is provided by the package \verb!csquotes!, which settings are in	\verb!classicthesis-config.tex!.
-The package also provides \verb!\enquote{!the citation\verb!}! that produces \enquote{correct citation style} according to the language in use.
+	\item \verb!\blockcquote[][]{}{}! to \blockcquote[see][p. 111]{bringhurst:2002}{produce a quotation with reference to author and page}.
+	If the quotation is longer than two rows is indented. This is provided by the package \verb!csquotes!, which settings are in \verb!classicthesis-config.tex!. 
+	The package also provides \verb!\enquote{!the citation\verb!}! that produces \enquote{correct quatation style} according to the language in use.
 
 	\item \verb!\ac{}! and its variations, defined by package \verb!acronyms!, provide nice handling for acronyms, like \ac{XML}, produced with the code \verb!\ac{XML}!.
-List them within the environment \verb!acronym! in the file \verb!FrontBackmatter/Acronyms.tex!.
+	List them within the environment \verb!acronym! in the file \verb!FrontBackmatter/Acronyms.tex!.
 
-	\item the so called semi-dynamic referencing for chapter, sections, subsections, appendices, figures, tables and equations. They are a set of commands like \verb!\myChap{label_key}! that produce things like \myChap{chap:aChapter}. There are also capital versions of the commands (\verb!\MyChap{}! produces \MyChap{chap:aChapter}). They need a \verb!\label{name}! anchor next to the referred thing.
+	\item the so called semi-dynamic referencing for chapter, sections, subsections, appendices, figures, tables and equations.
+	They are a set of commands like \verb!\myChap{label_key}! that produce things like \myChap{chap:aChapter}.
+	There are also capital versions of the commands (\verb!\MyChap{}! produces \MyChap{chap:aChapter}).
+	They need a \verb!\label{name}! anchor next to the referred thing.
 	\begin{itemize}
 		\item\verb!\myChap! for chapters;
 		\item\verb!\mySec! for sections;
@@ -127,6 +129,8 @@ List them within the environment \verb!acronym! in the file \verb!FrontBackmatte
 
 	\item references to bibliography are produced in the usual way with \verb!\cite{bib_key}! \cite{bringhurst:2002} and its variations \verb!\citeauthor{bib_key}!, \verb!\citetitle{bib_key}! and others.
 
+	\item footnotes are useful to provide information which are not required to understand a sentence but provide interesting details. You can create them with \verb!\footnote{text}!.\footnote{They should be placed after the punctuation mark and preferably at the end of the paragraph. In fact, they should not interrupt the reading flow. If you need to put a footnote in the middle of a paragraph, or of a sentence then the note should be part of the main text.}
+
 	\item figures are handled usually with the code
 	\begin{verbatim}
 	\begin{figure}
@@ -136,7 +140,10 @@ List them within the environment \verb!acronym! in the file \verb!FrontBackmatte
 	\label{fig:a_name}
 	\end{figure}
 	\end{verbatim}
-	which produces things like \myFig{fig:massConstraintFeasibility}. Of course, you need to put the image file \verb!your_image_name.pdf! in folder \verb!Images/!.
+	which produces things like \myFig{fig:massConstraintFeasibility}. 
+	Take care of the short description: it appears in the list of figures and should be just a reference, not a exhaustive description.
+	Of course, you need to put the image file \verb!your_image_name.pdf! in folder \verb!Images/!.
+	We suggest to keep things organized: create a folder for each chapter and keep the original source/working file in the same place.
 
 	\item tables are produced with
 	\begin{verbatim}
@@ -163,8 +170,9 @@ List them within the environment \verb!acronym! in the file \verb!FrontBackmatte
 	\end{table}
 	\end{verbatim}
 	which produces \myTab{tab:MOEAandParameters}.
-\verb!\myfloatalign!, \verb!\tableheadline{}{}! and its variation \verb!\tableheadlineMore{}{}{}! and \verb!\tablefirstcol{}{}! are used to give a common style to all tables in the document.
-They are defined in \verb!classicthesis-config.tex!.\footnote{Also do not forget footnotes, created by \texttt{\textbackslash footnote\{\}}, which should be placed after the punctuation mark.}
+	\verb!\myfloatalign!, \verb!\tableheadline{}{}! and its variation \verb!\tableheadlineMore{}{}{}! and \verb!\tablefirstcol{}{}! are used to give a common style to all tables in the document.
+	Use them!
+	They are defined in \verb!classicthesis-config.tex!.
 
 	\item equation are produced in classic \LaTeX\ way and they turn out be something like this
 	\begin{equation}
@@ -176,7 +184,7 @@ They are defined in \verb!classicthesis-config.tex!.\footnote{Also do not forget
 
 \begin{figure}
 \centering
-\includegraphics[width=\columnwidth]{Images/feasibilityNR51.pdf}  
+\includegraphics[width=\columnwidth]{Images/Technicalities/feasibilityNR51.pdf}  
 \caption[Thing taken from our master thesis]{Thing taken from our master thesis whose meaning have been completely forgotten.}
 \label{fig:massConstraintFeasibility}
 \end{figure}
@@ -202,4 +210,4 @@ They are defined in \verb!classicthesis-config.tex!.\footnote{Also do not forget
 \end{table}
 
 \section{Contributing to this template}
-Suggestion and improvements are welcome at \url{https://github.com/Lordmzn/ClassicThesis-at-DEIB} or via email at \url{emanuele.mason@polimi.it} or \url{andrea.cominola@polimi.it}.
+Suggestion and improvements are welcome at \url{https://github.com/Lordmzn/ClassicThesis-at-DEIB} or via email at \url{emanuele.mason@polimi.it}, \url{andrea.cominola@polimi.it} or \url{daniela.anghileri@polimi.it}.
