@@ -27,13 +27,10 @@
 %
 % ***************************************************************
 % Note:
-%    * You must not use "u etc. in strings/commands that will be
-%      spaced out (use \"u or real umlauts instead)
-%    * New enumeration (small caps): \begin{aenumerate}
-%      \end{aenumerate}
-% 	 * For margin notes: \marginpar or \graffito{}
-%    * Do not use bold fonts in this style, it is designed around
-%      them
+%    * You must not use "u etc. in strings/commands that will be spaced out (use \"u or real umlauts instead)
+%    * New enumeration (small caps): \begin{aenumerate} \end{aenumerate}
+%    * For margin notes: \marginpar or \graffito{}
+%    * Do not use bold fonts in this style, it is designed around them
 %    * Use tables as in the examples
 %    * See classicthesis-preamble.sty for useful commands
 % ****************************************************************
@@ -44,7 +41,7 @@
 			titlepage, 
 			numbers=noenddot,
 			headinclude, %1headlines
-            footinclude=true, 
+            		footinclude=true, 
 			cleardoublepage=empty,
 			abstractoff, % <--- obsolete, remove (todo)
 			BCOR=5mm,
@@ -56,7 +53,17 @@
 % Note: Make all your adjustments in here
 %*****************************************************************
 
-\usepackage[backref, backend=biber]{biblatex}
+% \usepackage[backref, backend=biber]{biblatex}
+\usepackage[backref,
+		backend=biber,
+            	maxbibnames=99,
+            	natbib=true,
+            	firstinits=false,
+            	style=authoryear-comp,
+            	sortcites=false,
+            	doi=false,
+            	url=false,
+            	refsection=chapter]{biblatex}
 \bibliography{Bibliography}	
 
 \input{classicthesis-config}

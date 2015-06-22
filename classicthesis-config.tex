@@ -108,15 +108,7 @@
 \PassOptionsToPackage{american,italian}{babel}
 	 \usepackage{babel}
 
-\PassOptionsToPackage{fleqn}{amsmath} % math environments and more by the AMS 
- 	\usepackage{amsmath}
- 
-\usepackage{amsthm}
-	\theoremstyle{definition}
-
-\newtheorem{definition}{Definition}
-
-\usepackage{textcomp} % fix warning with missing font shapes
+ \usepackage{textcomp} % fix warning with missing font shapes
 \usepackage{scrhack} % fix warnings when using KOMA with listings package          
 \usepackage{xspace} % to get the spacing after macros right  
 \usepackage{mparhack} % get marginpar right
@@ -126,6 +118,26 @@
 
 \PassOptionsToPackage{printonlyused,smaller}{acronym}
 	\usepackage{acronym} % nice macros for handling all acronyms in the thesis
+% **********************************************************************
+
+%*********************************************************************************
+% 3.a Math
+%*********************************************************************************
+\PassOptionsToPackage{fleqn}{amsmath} % math environments and more by the AMS 
+ 	\usepackage{amsmath}
+ 
+\usepackage{amsthm}
+\usepackage{amssymb}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{theorem}{Theorem}[chapter]
+
+\theoremstyle{plain}
+\newtheorem{observation}[definition]{Observation}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
 % **********************************************************************
 
 
