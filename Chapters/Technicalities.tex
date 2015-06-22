@@ -104,10 +104,15 @@ To modify abstract, preface, acknowledgements snd acronyms, you need to go into 
 
 \subsection{Special environments}\label{subsec:special_env}
 In addition to common \LaTeX\ environments, this thesis is set to use:
+\graffito{Use these environments: they make the thesis less bland and readable.}
 \begin{itemize}
-	\graffito{The command graffito is used to put some text here, usefull to underline important things before long paragraphs.}
+	\item the command \verb!\graffito{}! is used to create margin notes.
+	The limits in number of words or length of word must be seen as a motivation to keep the notes short and simple;
 	\item \verb!\begin{aenumerate}! to produce an \verb!\enumerate! with letters instead of numbers, as in the file list above;
-	\item footnotes are useful to provide information which are not required to understand a sentence but provide interesting details. You can create them with \verb!\footnote{text}!.\footnote{They should be placed after the punctuation mark and preferably at the end of the paragraph. In fact, they should not interrupt the reading flow. If you need to put a footnote in the middle of a paragraph, or of a sentence then the note should be part of the main text.}
+	\item footnotes are useful to provide extra information. 
+	Usually they are not required to understand a paragraph but provide interesting details. 
+	This keeps the main body of text concise.
+	You can create them with \verb!\footnote{text}!.\footnote{They should be placed after the punctuation mark and preferably at the end of the paragraph. In fact, they should not interrupt the reading flow. If you need to put a footnote in the middle of a paragraph, or of a sentence then the note should be part of the main text.}
 	\item \verb!\ac{}! and its variations, defined by package \verb!acronyms!, provide nice handling for acronyms, like \ac{XML}, produced with the code \verb!\ac{XML}!.
 	List them within the environment \verb!acronym! in the file \verb!FrontBackmatter/Acronyms.tex!.
 \end{itemize}
